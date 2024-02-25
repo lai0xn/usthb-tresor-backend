@@ -43,7 +43,8 @@ class File(models.Model):
     
     @property
     def file_name(self):
-        return self.file.name
+        name = str(self.file.name).replace("files/","")
+        return name
  
     @property
     def file_size(self):

@@ -1,36 +1,61 @@
 from django.http import HttpResponse
-from rest_framework.decorators import api_view
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import action, api_view,parser_classes
 from rest_framework.views import status
 from files.models import File,Faculty,Module
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.parsers import MultiPartParser, FormParser
+from .params import name,file_type
 from django.db.models import Q
-from .serializers import FileSerializer,FacultySerialzer,ModuleSerializer
+from drf_yasg import openapi
+from .serializers import FileSerializer,FacultySerializer,ModuleSerializer
 
 # Create your views here.
-
+@swagger_auto_schema(method="GET",manual_parameters=[name])
 @api_view(["GET"])
 def get_faculty(request):
     fac = request.GET.get("name","")
     query = get_object_or_404(Faculty,name=fac)
-    serializer = FacultySerialzer(query,many=False)
+    serializer = FacultySerializer(query,many=False)
+    return Response(serializer.data,status=status.HTTP_200_OK)
+
+@swagger_auto_schema(method="GET",manual_parameters=[name])
+@api_view(["GET"])
+def module(request):
+    name = request.GET.get("name","")
+    query = get_object_or_404(Module,short=name)
+    serializer = ModuleSerializer(query,many=False)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
-def module(request):
-    name = request.GET.get("name","")
-    query = get_object_or_404(Module,name=name)
-    serializer = ModuleSerializer(query,many=False)
+def get_module_byID(request,id):
+    queryset = get_object_or_404(Module,id=id)
+    serializer = ModuleSerializer(queryset,many=False)
+    return Response(serializer.data,status=status.HTTP_200_OK)
+   
+
+@api_view(["GET"])
+def get_faculty_byID(request,id):
+    queryset = get_object_or_404(Faculty,id=id)
+    serializer = FacultySerializer(queryset,many=False)
+    return Response(serializer.data,status=status.HTTP_200_OK)
+
+@api_view(["GET"])
+def get_file_byID(request,id):
+    queryset = get_object_or_404(File,id=id)
+    serializer = FileSerializer(queryset,many=False)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
 @api_view(["GET"])
 def get_faculties(request):
     queryset = Faculty.objects.all()
-    serializer = FacultySerialzer(queryset,many=True)
+    serializer = FacultySerializer(queryset,many=True)
     return Response(serializer.data)
 
-
+@swagger_auto_schema(method="GET",manual_parameters=[name,file_type])
 @api_view(["GET"])
 def search_files(request):
     query = request.GET.get("q")
@@ -49,7 +74,14 @@ def search_files(request):
     return Response(serializer.data)
 
 
-@api_view(["PUT"])
+@swagger_auto_schema(method='post', request_body=openapi.Schema(
+    type=openapi.TYPE_OBJECT,
+    required=['file'],
+    properties={
+        'file': openapi.Schema(type=openapi.TYPE_FILE,format=openapi.FORMAT_BINARY)
+            }
+))
+@api_view(["POST"])
 def upload_file(request):
     serializer = FileSerializer(data=request.data)
     if serializer.is_valid():

@@ -8,13 +8,13 @@ class ModuleSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Module
-        fields=('id','name','file_set')
+        fields=('id','name','short','file_set')
         depth=1
 
    
 
 
-class FacultySerialzer(serializers.ModelSerializer):
+class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
         fields = ('id','name','modules')
@@ -23,12 +23,14 @@ class FacultySerialzer(serializers.ModelSerializer):
 
 class FileSerializer(serializers.ModelSerializer):
     module = serializers.SerializerMethodField()
+    file_name = serializers.SerializerMethodField()
     module_id = serializers.IntegerField()
     class Meta:
         model = File
         fields='__all__'
 
-
+    def get_file_name(self, obj):
+        return obj.file_name
     def get_module(self,obj):
         data = {"id":obj.module.id,"name":obj.module.name} 
         return data
