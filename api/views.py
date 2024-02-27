@@ -16,17 +16,24 @@ from .serializers import FileSerializer,FacultySerializer,ModuleSerializer
 @swagger_auto_schema(method="GET",manual_parameters=[name])
 @api_view(["GET"])
 def get_faculty(request):
-    fac = request.GET.get("name","")
-    query = get_object_or_404(Faculty,name=fac)
-    serializer = FacultySerializer(query,many=False)
+    fac = request.GET.get("query","")
+    query = Faculty.objects.filter(Q(name__icontains=fac) | Q(short__icontains=fac))
+    if len(query) == 0:
+        return Response({"message":"not found"},status=status.HTTP_404_NOT_FOUND)
+
+    serializer = FacultySerializer(query,many=True)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
 @swagger_auto_schema(method="GET",manual_parameters=[name])
 @api_view(["GET"])
 def module(request):
-    name = request.GET.get("name","")
-    query = get_object_or_404(Module,short=name)
-    serializer = ModuleSerializer(query,many=False)
+    name = request.GET.get("query","")
+    
+    query = Module.objects.filter(Q(name__icontains=name) | Q(short__icontains=name))
+    print(query)
+    if len(query) == 0:
+        return Response({"message":"not found"},status=status.HTTP_404_NOT_FOUND)
+    serializer = ModuleSerializer(query,many=True)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
 
@@ -58,7 +65,7 @@ def get_faculties(request):
 @swagger_auto_schema(method="GET",manual_parameters=[name,file_type])
 @api_view(["GET"])
 def search_files(request):
-    query = request.GET.get("q")
+    query = request.GET.get("query")
     file_type = request.GET.get("type")
 
     filter_q = Q(accepted=True)

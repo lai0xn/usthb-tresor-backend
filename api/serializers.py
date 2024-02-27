@@ -17,7 +17,7 @@ class ModuleSerializer(serializers.ModelSerializer):
 class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
-        fields = ('id','name','modules')
+        fields = ('id','name','short','modules')
         depth=1
     
 
