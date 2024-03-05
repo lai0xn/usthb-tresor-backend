@@ -12,6 +12,7 @@ class Module(models.Model):
     name = models.CharField(max_length=50,null=False)
     short = models.CharField(max_length=10,null=False,blank=False)
     drive_id = models.CharField(max_length=100,null=True,blank=True)
+    semester = models.CharField(max_length=100,null=False)
     @property
     def file_count(self):
         count = 0;
