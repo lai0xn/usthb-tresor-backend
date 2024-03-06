@@ -6,13 +6,14 @@ from django.db import models
 #file types
 TYPES = {"Lesson":"cour","TD":"td","Exam":"exam"}
 
-
+SEMESTERS = {"s1":"s1","s2":"s2","s3":"s3","s4":"s4","s5":"s5","s6":"s6","s7":"s7","s8":"s8","s9":"s9","s10":"s10"}
 
 class Module(models.Model):
     name = models.CharField(max_length=50,null=False)
     short = models.CharField(max_length=10,null=False,blank=False)
     drive_id = models.CharField(max_length=100,null=True,blank=True)
-    # semester = models.CharField(max_length=100,null=False)
+    semester = models.CharField(max_length=10,choices=SEMESTERS,null=True,blank=False)
+
     @property
     def file_count(self):
         count = 0;
