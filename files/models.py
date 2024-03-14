@@ -1,3 +1,4 @@
+from sys import modules
 from django.db import models
 # Create your models here.
 
@@ -5,15 +6,20 @@ from django.db import models
 
 #file types
 TYPES = {"Lesson":"cour","TD":"td","Exam":"exam"}
-
 SEMESTERS = {"s1":"s1","s2":"s2","s3":"s3","s4":"s4","s5":"s5","s6":"s6","s7":"s7","s8":"s8","s9":"s9","s10":"s10"}
+
+class ModuleGroup(models.Model):
+    name = models.CharField(max_length=50)
+    short = models.CharField(max_length=10)
+
+
 
 class Module(models.Model):
     name = models.CharField(max_length=50,null=False)
     short = models.CharField(max_length=10,null=False,blank=False)
     drive_id = models.CharField(max_length=100,null=True,blank=True)
-    semester = models.CharField(max_length=10,choices=SEMESTERS,null=True,blank=False)
-
+    group = models.ForeignKey(ModuleGroup,on_delete=models.CASCADE)
+    drive_id = models.CharField(max_length=100)
     @property
     def file_count(self):
         count = 0;
@@ -25,13 +31,17 @@ class Module(models.Model):
         return self.name
 
 
+
 class Faculty(models.Model):
     name = models.CharField(max_length=100,null=False,blank=False)
     modules = models.ManyToManyField(Module)
     short = models.CharField(max_length=10,null=False,blank=False)
-
+    
     def __str__(self):
         return self.name
+
+    def group_modules(self):
+       pass 
 
 class File(models.Model):
     accepted = models.BooleanField(default=False)

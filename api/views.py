@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import action, api_view,parser_classes
 from rest_framework.views import status
-from files.models import File,Faculty,Module
+from files.models import File,Faculty,Module, ModuleGroup
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
@@ -107,3 +107,18 @@ def download_file(request,id):
         response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_instance.file_name)
     return response
 
+
+
+@api_view(["GET"])
+def get_modules_by_group(request):
+    fac = request.GET.get("fac","")
+    group = request.GET.get("group","")
+
+    faculty = get_object_or_404(Faculty,short=fac)
+    module_group = get_object_or_404(ModuleGroup,short=group)
+    query = Q(faculty__short=faculty.short) & Q(group__short=module_group.short)
+    modules = Module.objects.filter(query)
+
+    serializer = ModuleSerializer(modules,many=True)
+
+    return Response(serializer.data,status=status.HTTP_200_OK)
