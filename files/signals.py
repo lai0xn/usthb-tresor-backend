@@ -1,6 +1,6 @@
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from files.models import File,Faculty,Module
+from files.models import File,Faculty,Module, ModuleGroup
 from google.oauth2.credentials import Credentials, credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
@@ -39,7 +39,8 @@ def hanle_Module_Creation(sender,instance,created,**kwargs):
         body = {
         'name': instance.name,
         'mimeType': 'application/vnd.google-apps.folder',
-        'parents':[MASTER_FOLDER_ID]
+        'parents':[instance.group.drive_id]
+
         }
         file = drive_service.files().create(body=body,fields='id').execute()
         instance.drive_id = file.get('id')
@@ -47,4 +48,17 @@ def hanle_Module_Creation(sender,instance,created,**kwargs):
 
 
     
+@receiver(post_save,sender=ModuleGroup)
+def hanle_group_creation(sender,instance,created,**kwargs):
+    print("cc")
+    if instance.drive_id == None :
+        body = {
+        'name': instance.name,
+        'mimeType': 'application/vnd.google-apps.folder',
+        'parents':[MASTER_FOLDER_ID]
+        }
+        file = drive_service.files().create(body=body,fields='id').execute()
+        instance.drive_id = file.get('id')
+        instance.save()
+
 

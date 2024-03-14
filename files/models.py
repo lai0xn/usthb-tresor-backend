@@ -12,8 +12,11 @@ SEMESTERS = {"s1":"s1","s2":"s2","s3":"s3","s4":"s4","s5":"s5","s6":"s6","s7":"s
 class ModuleGroup(models.Model):
     name = models.CharField(max_length=50)
     short = models.CharField(max_length=10)
+
     drive_id = models.CharField(max_length=100,null=True,blank=True)
 
+    def __str__(self) -> str:
+        return self.name
 
 class Module(models.Model):
     name = models.CharField(max_length=50,null=False)
