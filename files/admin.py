@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import File,Faculty,Module
+from .models import File,Faculty,Module,ModuleGroup
 
 
 # Register your models here.
@@ -8,3 +8,4 @@ from .models import File,Faculty,Module
 admin.site.register(File)
 admin.site.register(Faculty)
 admin.site.register(Module)
+admin.site.register(ModuleGroup)
