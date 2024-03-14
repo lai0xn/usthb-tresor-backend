@@ -1,3 +1,4 @@
+from os import kill
 from sys import modules
 from django.db import models
 # Create your models here.
@@ -11,7 +12,7 @@ SEMESTERS = {"s1":"s1","s2":"s2","s3":"s3","s4":"s4","s5":"s5","s6":"s6","s7":"s
 class ModuleGroup(models.Model):
     name = models.CharField(max_length=50)
     short = models.CharField(max_length=10)
-
+    drive_id = models.CharField(max_length=100,null=True,blank=True)
 
 
 class Module(models.Model):
@@ -19,7 +20,6 @@ class Module(models.Model):
     short = models.CharField(max_length=10,null=False,blank=False)
     drive_id = models.CharField(max_length=100,null=True,blank=True)
     group = models.ForeignKey(ModuleGroup,on_delete=models.CASCADE)
-    drive_id = models.CharField(max_length=100)
     @property
     def file_count(self):
         count = 0;
