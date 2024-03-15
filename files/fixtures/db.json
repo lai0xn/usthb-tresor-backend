@@ -1,0 +1,1140 @@
+[
+   {
+      "model":"files.modulegroup",
+      "pk":1,
+      "fields":{
+         "name":"algorithms and data structure",
+         "short":"algo",
+         "drive_id":"1zssHZm7YsK4rnXTM6JpA-dCvW6dfkNgB"
+      }
+   },
+   {
+      "model":"files.module",
+      "pk":1,
+      "fields":{
+         "name":"Algorithmes and data structures 1",
+         "short":"algo1",
+         "drive_id":"17yCVlS2qv9zCWUPmLcRapRBVwDeESEf0",
+         "group":1
+      }
+   },
+   {
+      "model":"files.module",
+      "pk":2,
+      "fields":{
+         "name":"Algorithmes and data structures 2",
+         "short":"algo2",
+         "drive_id":"1XbFBxzwkYWrH_DRdMPYeG6lY0N7tThkW",
+         "group":1
+      }
+   },
+   {
+      "model":"files.module",
+      "pk":3,
+      "fields":{
+         "name":"Algorithmes and data structures 3",
+         "short":"algo 3",
+         "drive_id":"1h6IbiqoSjsBMH5wCxEqBAJ0mcGP0szpS",
+         "group":1
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":1,
+      "fields":{
+         "name":"computer science",
+         "short":"finfo",
+         "modules":[
+            1,
+            2,
+            3
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":2,
+      "fields":{
+         "name":"biological sciences",
+         "short":"fbiol",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":3,
+      "fields":{
+         "name":"chimestry",
+         "short":"fchimie",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":4,
+      "fields":{
+         "name":"civil engineering",
+         "short":"fgc",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":5,
+      "fields":{
+         "name":"electrical engineering",
+         "short":"fge",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":6,
+      "fields":{
+         "name":"earth sciences, geography and terrritorial planning",
+         "short":"fst",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":7,
+      "fields":{
+         "name":"mathematics",
+         "short":"fmath",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":8,
+      "fields":{
+         "name":"physics",
+         "short":"fphy",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"files.faculty",
+      "pk":9,
+      "fields":{
+         "name":"processing and mechanical engineering",
+         "short":"fgmgp",
+         "modules":[
+            1
+         ]
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":1,
+      "fields":{
+         "title":"Quick links",
+         "module":"jet.dashboard.modules.LinkList",
+         "app_label":null,
+         "user":1,
+         "column":0,
+         "order":0,
+         "settings":"{\"draggable\": false, \"deletable\": false, \"collapsible\": false, \"layout\": \"inline\"}",
+         "children":"[{\"title\": \"Return to site\", \"url\": \"/\"}, {\"title\": \"Change password\", \"url\": \"/admin/password_change/\"}, {\"title\": \"Log out\", \"url\": \"/admin/logout/\"}]",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":2,
+      "fields":{
+         "title":"Applications",
+         "module":"jet.dashboard.modules.AppList",
+         "app_label":null,
+         "user":1,
+         "column":1,
+         "order":0,
+         "settings":"{\"models\": null, \"exclude\": [\"auth.*\"]}",
+         "children":"",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":3,
+      "fields":{
+         "title":"Administration",
+         "module":"jet.dashboard.modules.AppList",
+         "app_label":null,
+         "user":1,
+         "column":2,
+         "order":0,
+         "settings":"{\"models\": [\"auth.*\"], \"exclude\": null}",
+         "children":"",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":4,
+      "fields":{
+         "title":"Recent Actions",
+         "module":"jet.dashboard.modules.RecentActions",
+         "app_label":null,
+         "user":1,
+         "column":0,
+         "order":1,
+         "settings":"{\"limit\": 10, \"include_list\": null, \"exclude_list\": null, \"user\": null}",
+         "children":"",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":5,
+      "fields":{
+         "title":"Latest Django News",
+         "module":"jet.dashboard.modules.Feed",
+         "app_label":null,
+         "user":1,
+         "column":1,
+         "order":1,
+         "settings":"{\"feed_url\": \"http://www.djangoproject.com/rss/weblog/\", \"limit\": 5}",
+         "children":"",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":6,
+      "fields":{
+         "title":"Support",
+         "module":"jet.dashboard.modules.LinkList",
+         "app_label":null,
+         "user":1,
+         "column":2,
+         "order":1,
+         "settings":"{\"draggable\": true, \"deletable\": true, \"collapsible\": true, \"layout\": \"stacked\"}",
+         "children":"[{\"title\": \"Django documentation\", \"url\": \"http://docs.djangoproject.com/\", \"external\": true}, {\"title\": \"Django \\\"django-users\\\" mailing list\", \"url\": \"http://groups.google.com/group/django-users\", \"external\": true}, {\"title\": \"Django irc channel\", \"url\": \"irc://irc.freenode.net/django\", \"external\": true}]",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":7,
+      "fields":{
+         "title":"Application models",
+         "module":"jet.dashboard.modules.ModelList",
+         "app_label":"files",
+         "user":1,
+         "column":0,
+         "order":0,
+         "settings":"{\"models\": [\"files.*\"], \"exclude\": null}",
+         "children":"",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"dashboard.userdashboardmodule",
+      "pk":8,
+      "fields":{
+         "title":"Recent Actions",
+         "module":"jet.dashboard.modules.RecentActions",
+         "app_label":"files",
+         "user":1,
+         "column":1,
+         "order":0,
+         "settings":"{\"limit\": 10, \"include_list\": [\"files.*\"], \"exclude_list\": null, \"user\": null}",
+         "children":"",
+         "collapsed":false
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":1,
+      "fields":{
+         "action_time":"2024-03-14T23:36:14.412Z",
+         "user":1,
+         "content_type":2,
+         "object_id":"1",
+         "object_repr":"Informatique",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":2,
+      "fields":{
+         "action_time":"2024-03-14T23:36:42.624Z",
+         "user":1,
+         "content_type":1,
+         "object_id":"1",
+         "object_repr":"Algorithmes and data structures 1",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":3,
+      "fields":{
+         "action_time":"2024-03-14T23:39:29.258Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"1",
+         "object_repr":"Faculty of computer science",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":4,
+      "fields":{
+         "action_time":"2024-03-15T15:51:07.713Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"1",
+         "object_repr":"computer science",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Name\"]}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":5,
+      "fields":{
+         "action_time":"2024-03-15T15:51:40.664Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"2",
+         "object_repr":"biological sciences",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":6,
+      "fields":{
+         "action_time":"2024-03-15T15:51:55.776Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"3",
+         "object_repr":"chimestry",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":7,
+      "fields":{
+         "action_time":"2024-03-15T15:52:12.882Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"4",
+         "object_repr":"civil engineering",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":8,
+      "fields":{
+         "action_time":"2024-03-15T15:52:30.083Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"5",
+         "object_repr":"electrical engineering",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":9,
+      "fields":{
+         "action_time":"2024-03-15T15:52:55.866Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"6",
+         "object_repr":"earth sciences, geography and terrritorial planning",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":10,
+      "fields":{
+         "action_time":"2024-03-15T15:53:17.801Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"7",
+         "object_repr":"mathematics",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":11,
+      "fields":{
+         "action_time":"2024-03-15T15:53:27.301Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"8",
+         "object_repr":"physics",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":12,
+      "fields":{
+         "action_time":"2024-03-15T15:53:50.583Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"9",
+         "object_repr":"process and mechanical engineering",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":13,
+      "fields":{
+         "action_time":"2024-03-15T16:10:25.613Z",
+         "user":1,
+         "content_type":1,
+         "object_id":"2",
+         "object_repr":"computer architecture 1",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":14,
+      "fields":{
+         "action_time":"2024-03-15T16:10:47.089Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"1",
+         "object_repr":"computer science",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Modules\"]}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":15,
+      "fields":{
+         "action_time":"2024-03-15T16:14:54.203Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"9",
+         "object_repr":"processing and mechanical engineering",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Name\"]}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":16,
+      "fields":{
+         "action_time":"2024-03-15T16:29:22.003Z",
+         "user":1,
+         "content_type":2,
+         "object_id":"1",
+         "object_repr":"algorithms and data structure",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Name\", \"Short\"]}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":17,
+      "fields":{
+         "action_time":"2024-03-15T16:29:39.819Z",
+         "user":1,
+         "content_type":1,
+         "object_id":"2",
+         "object_repr":"Algorithmes and data structures 2",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Name\", \"Short\"]}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":18,
+      "fields":{
+         "action_time":"2024-03-15T16:29:48.493Z",
+         "user":1,
+         "content_type":1,
+         "object_id":"3",
+         "object_repr":"Algorithmes and data structures 3",
+         "action_flag":1,
+         "change_message":"[{\"added\": {}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":19,
+      "fields":{
+         "action_time":"2024-03-15T16:30:03.810Z",
+         "user":1,
+         "content_type":1,
+         "object_id":"2",
+         "object_repr":"Algorithmes and data structures 2",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Short\"]}}]"
+      }
+   },
+   {
+      "model":"admin.logentry",
+      "pk":20,
+      "fields":{
+         "action_time":"2024-03-15T16:40:04.504Z",
+         "user":1,
+         "content_type":4,
+         "object_id":"1",
+         "object_repr":"computer science",
+         "action_flag":2,
+         "change_message":"[{\"changed\": {\"fields\": [\"Modules\"]}}]"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":1,
+      "fields":{
+         "name":"Can add module",
+         "content_type":1,
+         "codename":"add_module"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":2,
+      "fields":{
+         "name":"Can change module",
+         "content_type":1,
+         "codename":"change_module"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":3,
+      "fields":{
+         "name":"Can delete module",
+         "content_type":1,
+         "codename":"delete_module"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":4,
+      "fields":{
+         "name":"Can view module",
+         "content_type":1,
+         "codename":"view_module"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":5,
+      "fields":{
+         "name":"Can add module group",
+         "content_type":2,
+         "codename":"add_modulegroup"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":6,
+      "fields":{
+         "name":"Can change module group",
+         "content_type":2,
+         "codename":"change_modulegroup"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":7,
+      "fields":{
+         "name":"Can delete module group",
+         "content_type":2,
+         "codename":"delete_modulegroup"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":8,
+      "fields":{
+         "name":"Can view module group",
+         "content_type":2,
+         "codename":"view_modulegroup"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":9,
+      "fields":{
+         "name":"Can add file",
+         "content_type":3,
+         "codename":"add_file"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":10,
+      "fields":{
+         "name":"Can change file",
+         "content_type":3,
+         "codename":"change_file"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":11,
+      "fields":{
+         "name":"Can delete file",
+         "content_type":3,
+         "codename":"delete_file"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":12,
+      "fields":{
+         "name":"Can view file",
+         "content_type":3,
+         "codename":"view_file"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":13,
+      "fields":{
+         "name":"Can add faculty",
+         "content_type":4,
+         "codename":"add_faculty"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":14,
+      "fields":{
+         "name":"Can change faculty",
+         "content_type":4,
+         "codename":"change_faculty"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":15,
+      "fields":{
+         "name":"Can delete faculty",
+         "content_type":4,
+         "codename":"delete_faculty"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":16,
+      "fields":{
+         "name":"Can view faculty",
+         "content_type":4,
+         "codename":"view_faculty"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":17,
+      "fields":{
+         "name":"Can add user dashboard module",
+         "content_type":5,
+         "codename":"add_userdashboardmodule"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":18,
+      "fields":{
+         "name":"Can change user dashboard module",
+         "content_type":5,
+         "codename":"change_userdashboardmodule"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":19,
+      "fields":{
+         "name":"Can delete user dashboard module",
+         "content_type":5,
+         "codename":"delete_userdashboardmodule"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":20,
+      "fields":{
+         "name":"Can view user dashboard module",
+         "content_type":5,
+         "codename":"view_userdashboardmodule"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":21,
+      "fields":{
+         "name":"Can add bookmark",
+         "content_type":6,
+         "codename":"add_bookmark"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":22,
+      "fields":{
+         "name":"Can change bookmark",
+         "content_type":6,
+         "codename":"change_bookmark"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":23,
+      "fields":{
+         "name":"Can delete bookmark",
+         "content_type":6,
+         "codename":"delete_bookmark"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":24,
+      "fields":{
+         "name":"Can view bookmark",
+         "content_type":6,
+         "codename":"view_bookmark"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":25,
+      "fields":{
+         "name":"Can add pinned application",
+         "content_type":7,
+         "codename":"add_pinnedapplication"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":26,
+      "fields":{
+         "name":"Can change pinned application",
+         "content_type":7,
+         "codename":"change_pinnedapplication"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":27,
+      "fields":{
+         "name":"Can delete pinned application",
+         "content_type":7,
+         "codename":"delete_pinnedapplication"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":28,
+      "fields":{
+         "name":"Can view pinned application",
+         "content_type":7,
+         "codename":"view_pinnedapplication"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":29,
+      "fields":{
+         "name":"Can add log entry",
+         "content_type":8,
+         "codename":"add_logentry"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":30,
+      "fields":{
+         "name":"Can change log entry",
+         "content_type":8,
+         "codename":"change_logentry"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":31,
+      "fields":{
+         "name":"Can delete log entry",
+         "content_type":8,
+         "codename":"delete_logentry"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":32,
+      "fields":{
+         "name":"Can view log entry",
+         "content_type":8,
+         "codename":"view_logentry"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":33,
+      "fields":{
+         "name":"Can add permission",
+         "content_type":9,
+         "codename":"add_permission"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":34,
+      "fields":{
+         "name":"Can change permission",
+         "content_type":9,
+         "codename":"change_permission"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":35,
+      "fields":{
+         "name":"Can delete permission",
+         "content_type":9,
+         "codename":"delete_permission"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":36,
+      "fields":{
+         "name":"Can view permission",
+         "content_type":9,
+         "codename":"view_permission"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":37,
+      "fields":{
+         "name":"Can add group",
+         "content_type":10,
+         "codename":"add_group"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":38,
+      "fields":{
+         "name":"Can change group",
+         "content_type":10,
+         "codename":"change_group"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":39,
+      "fields":{
+         "name":"Can delete group",
+         "content_type":10,
+         "codename":"delete_group"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":40,
+      "fields":{
+         "name":"Can view group",
+         "content_type":10,
+         "codename":"view_group"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":41,
+      "fields":{
+         "name":"Can add user",
+         "content_type":11,
+         "codename":"add_user"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":42,
+      "fields":{
+         "name":"Can change user",
+         "content_type":11,
+         "codename":"change_user"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":43,
+      "fields":{
+         "name":"Can delete user",
+         "content_type":11,
+         "codename":"delete_user"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":44,
+      "fields":{
+         "name":"Can view user",
+         "content_type":11,
+         "codename":"view_user"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":45,
+      "fields":{
+         "name":"Can add content type",
+         "content_type":12,
+         "codename":"add_contenttype"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":46,
+      "fields":{
+         "name":"Can change content type",
+         "content_type":12,
+         "codename":"change_contenttype"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":47,
+      "fields":{
+         "name":"Can delete content type",
+         "content_type":12,
+         "codename":"delete_contenttype"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":48,
+      "fields":{
+         "name":"Can view content type",
+         "content_type":12,
+         "codename":"view_contenttype"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":49,
+      "fields":{
+         "name":"Can add session",
+         "content_type":13,
+         "codename":"add_session"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":50,
+      "fields":{
+         "name":"Can change session",
+         "content_type":13,
+         "codename":"change_session"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":51,
+      "fields":{
+         "name":"Can delete session",
+         "content_type":13,
+         "codename":"delete_session"
+      }
+   },
+   {
+      "model":"auth.permission",
+      "pk":52,
+      "fields":{
+         "name":"Can view session",
+         "content_type":13,
+         "codename":"view_session"
+      }
+   },
+   {
+      "model":"auth.user",
+      "pk":1,
+      "fields":{
+         "password":"pbkdf2_sha256$720000$3nz04xQahMPtulY0TC55mK$P51FfQND9nLsvIaTY6dWtCgjsvoHx8t7OD78jgBAUDs=",
+         "last_login":"2024-03-15T15:50:26.476Z",
+         "is_superuser":true,
+         "username":"admin",
+         "first_name":"",
+         "last_name":"",
+         "email":"",
+         "is_staff":true,
+         "is_active":true,
+         "date_joined":"2024-03-14T23:34:34.779Z",
+         "groups":[
+            
+         ],
+         "user_permissions":[
+            
+         ]
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":1,
+      "fields":{
+         "app_label":"files",
+         "model":"module"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":2,
+      "fields":{
+         "app_label":"files",
+         "model":"modulegroup"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":3,
+      "fields":{
+         "app_label":"files",
+         "model":"file"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":4,
+      "fields":{
+         "app_label":"files",
+         "model":"faculty"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":5,
+      "fields":{
+         "app_label":"dashboard",
+         "model":"userdashboardmodule"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":6,
+      "fields":{
+         "app_label":"jet",
+         "model":"bookmark"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":7,
+      "fields":{
+         "app_label":"jet",
+         "model":"pinnedapplication"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":8,
+      "fields":{
+         "app_label":"admin",
+         "model":"logentry"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":9,
+      "fields":{
+         "app_label":"auth",
+         "model":"permission"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":10,
+      "fields":{
+         "app_label":"auth",
+         "model":"group"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":11,
+      "fields":{
+         "app_label":"auth",
+         "model":"user"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":12,
+      "fields":{
+         "app_label":"contenttypes",
+         "model":"contenttype"
+      }
+   },
+   {
+      "model":"contenttypes.contenttype",
+      "pk":13,
+      "fields":{
+         "app_label":"sessions",
+         "model":"session"
+      }
+   },
+   {
+      "model":"sessions.session",
+      "pk":"j5rpbnkwcbo60pk1kd8qhpgpizi0cnfc",
+      "fields":{
+         "session_data":".eJxVjDsOwjAQBe_iGlnxJ05MSZ8zWLveNQ4gW4qTCnF3EikFtG9m3lsE2NYctsZLmElchRKX3w0hPrkcgB5Q7lXGWtZlRnko8qRNTpX4dTvdv4MMLe_1iE6jR98bD45JKTRodQIDwNY4T5gIUmdp16LRo4ZoE3eDGmyvnSLx-QL7BThP:1rkv1u:uGHXO6wHPU8g7fHFqUAeXyxjmBJU20T9yl6zYcI7pc8",
+         "expire_date":"2024-03-29T00:02:34.902Z"
+      }
+   },
+   {
+      "model":"sessions.session",
+      "pk":"m73z3ljvsuamirw2gk5o215ukg9rrcwz",
+      "fields":{
+         "session_data":".eJxVjDsOwjAQBe_iGlnxJ05MSZ8zWLveNQ4gW4qTCnF3EikFtG9m3lsE2NYctsZLmElchRKX3w0hPrkcgB5Q7lXGWtZlRnko8qRNTpX4dTvdv4MMLe_1iE6jR98bD45JKTRodQIDwNY4T5gIUmdp16LRo4ZoE3eDGmyvnSLx-QL7BThP:1rl9pC:yKvUhMu-kFiK3V3b6KLh6C2-vCobFwI6Rf1Ogc9qaz8",
+         "expire_date":"2024-03-29T15:50:26.480Z"
+      }
+   },
+   {
+      "model":"sessions.session",
+      "pk":"rnnqx14zdid3yitf3jfrl5tlwiynv198",
+      "fields":{
+         "session_data":".eJxVjDsOwjAQBe_iGlnxJ05MSZ8zWLveNQ4gW4qTCnF3EikFtG9m3lsE2NYctsZLmElchRKX3w0hPrkcgB5Q7lXGWtZlRnko8qRNTpX4dTvdv4MMLe_1iE6jR98bD45JKTRodQIDwNY4T5gIUmdp16LRo4ZoE3eDGmyvnSLx-QL7BThP:1rkuc7:ES_9v9Xj-uqcNZe48IKKZUTOJzrZ9uc6Z5SnTFmIKSw",
+         "expire_date":"2024-03-28T23:35:55.724Z"
+      }
+   }
+]

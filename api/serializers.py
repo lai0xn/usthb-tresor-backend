@@ -4,11 +4,12 @@ from files.models import File,Module,Faculty
 from rest_framework.exceptions import ValidationError
 
 
+
 class ModuleSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Module
-        fields=('id','name','short','file_set')
+        fields=('id','name','short','file_set','group')
         depth=1
 
    
@@ -18,7 +19,7 @@ class FacultySerializer(serializers.ModelSerializer):
     class Meta:
         model = Faculty
         fields = ('id','name','short','modules')
-        depth=1
+        depth=2
     
 
 class FileSerializer(serializers.ModelSerializer):
