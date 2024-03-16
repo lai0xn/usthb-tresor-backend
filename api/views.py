@@ -24,6 +24,7 @@ def get_faculty(request):
     serializer = FacultySerializer(query,many=True)
     return Response(serializer.data,status=status.HTTP_200_OK)
 
+#module view
 @swagger_auto_schema(method="GET",manual_parameters=[name])
 @api_view(["GET"])
 def module(request):
