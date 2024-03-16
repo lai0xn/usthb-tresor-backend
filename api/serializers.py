@@ -9,7 +9,7 @@ class ModuleSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Module
-        fields=('id','name','short','file_set','group')
+        fields=('id','name','short','file_set','group','drive_id','cour_drive_id','tp_drive_id','td_drive_id','other_drive_id')
         depth=1
 
    

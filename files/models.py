@@ -1,12 +1,10 @@
-from os import kill
-from sys import modules
 from django.db import models
 # Create your models here.
 
 
 
 #file types
-TYPES = {"Lesson":"cour","TD":"td","Exam":"exam"}
+TYPES = {"cour":"cour","td":"td","exam":"exam","other":"other","tp":"tp"}
 SEMESTERS = {"s1":"s1","s2":"s2","s3":"s3","s4":"s4","s5":"s5","s6":"s6","s7":"s7","s8":"s8","s9":"s9","s10":"s10"}
 
 class ModuleGroup(models.Model):
@@ -22,6 +20,11 @@ class Module(models.Model):
     name = models.CharField(max_length=50,null=False)
     short = models.CharField(max_length=10,null=False,blank=False)
     drive_id = models.CharField(max_length=100,null=True,blank=True)
+    cour_drive_id = models.CharField(max_length=100,null=True,blank=True)
+    tp_drive_id = models.CharField(max_length=100,null=True,blank=True)
+    td_drive_id = models.CharField(max_length=100,null=True,blank=True)
+    other_drive_id = models.CharField(max_length=100,null=True,blank=True)
+
     group = models.ForeignKey(ModuleGroup,on_delete=models.CASCADE)
     @property
     def file_count(self):

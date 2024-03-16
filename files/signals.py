@@ -18,9 +18,22 @@ MASTER_FOLDER_ID = "1-Hy1HWGoEfNpKTB-IRq4DPVCPG8O-K77"
 @receiver(post_save,sender=File)
 def handle_file_accepting(sender,instance,created,**kwargs):
     if instance.accepted:
+        print(instance.file_type)
+        if instance.file_type == "cour":
+            print("pii cour" + instance.module.cour_drive_id)
+            parent = instance.module.cour_drive_id
+        if instance.file_type == "td":
+            parent = instance.module.td_drive_id
+        if instance.file_type == "tp":
+            parent = instance.module.tp_drive_id
+
+        if instance.file_type == "other":
+            parent = instance.module.other_drive_id
+
         file_metadata = {
-            'name': instance.file.name,
-            'parents':[instance.module.drive_id]
+            'name': instance.title,
+
+            'parents':[parent]
         }
         media = MediaFileUpload(instance.file.path, resumable=True)
         file = drive_service.files().create(body=file_metadata, media_body=media, fields='id, name, mimeType, webViewLink').execute()
@@ -43,8 +56,46 @@ def hanle_Module_Creation(sender,instance,created,**kwargs):
 
         }
         file = drive_service.files().create(body=body,fields='id').execute()
-        instance.drive_id = file.get('id')
+        id = file.get('id')
+        instance.drive_id = id
+        cour_body = {
+
+            'name': "Cours",
+            'mimeType': 'application/vnd.google-apps.folder',
+            'parents':[id]
+        }
+        td_body = {
+
+            'name': "TD",
+            'mimeType': 'application/vnd.google-apps.folder',
+            'parents':[id]
+        }
+        tp_body = {
+
+            'name': "TP",
+            'mimeType': 'application/vnd.google-apps.folder',
+            'parents':[id]
+        }
+        other_body = {
+        'name': "Others",
+        'mimeType': 'application/vnd.google-apps.folder',
+        'parents':[id]
+
+        }
+        courses_folder = drive_service.files().create(body=cour_body,fields='id').execute()
+        td_folder = drive_service.files().create(body=td_body,fields='id').execute()
+        tp_folder = drive_service.files().create(body=tp_body,fields='id').execute()
+        other_folder= drive_service.files().create(body=other_body,fields='id').execute()
+
+        instance.cour_drive_id = courses_folder.get("id")
+
+        instance.tp_drive_id = tp_folder.get("id")
+        instance.td_drive_id = td_folder.get("id")
+        instance.other_drive_id = other_folder.get("id")
         instance.save()
+  
+
+
 
 
     
@@ -61,4 +112,4 @@ def hanle_group_creation(sender,instance,created,**kwargs):
         instance.drive_id = file.get('id')
         instance.save()
 
-
+    
