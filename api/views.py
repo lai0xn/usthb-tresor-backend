@@ -10,6 +10,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .params import name,file_type
 from django.db.models import Q
 from drf_yasg import openapi
+
 from .serializers import FileSerializer,FacultySerializer,ModuleSerializer
 
 # Create your views here.
@@ -89,6 +90,7 @@ def search_files(request):
         'file': openapi.Schema(type=openapi.TYPE_FILE,format=openapi.FORMAT_BINARY)
             }
 ))
+@parser_classes([MultiPartParser,FormParser])
 @api_view(["POST"])
 def upload_file(request):
     serializer = FileSerializer(data=request.data)
