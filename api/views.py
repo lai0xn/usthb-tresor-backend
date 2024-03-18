@@ -64,6 +64,8 @@ def get_faculties(request):
     serializer = FacultySerializer(queryset,many=True)
     return Response(serializer.data)
 
+
+
 @swagger_auto_schema(method="GET",manual_parameters=[name,file_type])
 @api_view(["GET"])
 def search_files(request):

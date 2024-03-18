@@ -24,6 +24,8 @@ class Module(models.Model):
     tp_drive_id = models.CharField(max_length=100,null=True,blank=True)
     td_drive_id = models.CharField(max_length=100,null=True,blank=True)
     other_drive_id = models.CharField(max_length=100,null=True,blank=True)
+    
+    exam_drive_id = models.CharField(max_length=100,null=True,blank=True)
 
     group = models.ForeignKey(ModuleGroup,on_delete=models.CASCADE)
     @property
