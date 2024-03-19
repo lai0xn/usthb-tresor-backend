@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import get_faculty,get_faculties, get_faculty_byID, get_file_byID,module,search_files,upload_file,download_file,get_modules_by_group
+from .views import get_faculty,get_faculties,get_module_byID, get_faculty_byID, get_file_byID,module,search_files,upload_file,download_file,get_modules_by_group
 
 urlpatterns = [
             path("fac/<int:id>",get_faculty_byID,name="single faculty"),
             path("fac/all",get_faculties,name="all faculties"),
-            path("module/<int:id>",get_faculty_byID,name='mod-id'),
+            path("module/<int:id>",get_module_byID,name='mod-id'),
             path("file/<int:id>",get_file_byID,name='fac-id'), 
             path("search/fac/",get_faculty,name='fac-search'), 
             path("search/module/",module,name="get module"),

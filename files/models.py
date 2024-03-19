@@ -12,7 +12,9 @@ class ModuleGroup(models.Model):
     short = models.CharField(max_length=10)
 
     drive_id = models.CharField(max_length=100,null=True,blank=True)
-
+    @property
+    def file_count(self):
+        return self.module_set.count()
     def __str__(self) -> str:
         return self.name
 
@@ -30,11 +32,7 @@ class Module(models.Model):
     group = models.ForeignKey(ModuleGroup,on_delete=models.CASCADE)
     @property
     def file_count(self):
-        count = 0;
-        for file in self.files:
-            count +=1
-
-
+       return self.file_set.count()
     def __str__(self):
         return self.name
 
@@ -47,6 +45,9 @@ class Faculty(models.Model):
     
     def __str__(self):
         return self.name
+    @property
+    def file_count(self):
+        return self.modules.count()
 
     def group_modules(self):
        pass 
