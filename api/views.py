@@ -127,3 +127,32 @@ def get_modules_by_group(request):
     serializer = ModuleSerializer(modules,many=True)
 
     return Response(serializer.data,status=status.HTTP_200_OK)
+
+
+
+
+@api_view(["GET"])
+def get_file_count(request,id):
+    fac = get_object_or_404(Faculty,id=id)
+    response = {
+        "file_count":fac.file_count(),
+        "tp_count":fac.tp_file_count(),
+        "td_count":fac.td_file_count(),
+        "cour_count":fac.cour_file_count(),
+        "other_count":fac.other_file_count(),
+    }
+    return Response(response,status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+def get_module_count(request,id):
+    fac = get_object_or_404(Module,id=id)
+    response = {
+        "file_count":fac.file_count(),
+        "tp_count":fac.tp_file_count(),
+        "td_count":fac.td_file_count(),
+        "cour_count":fac.cour_file_count(),
+        "other_count":fac.other_file_count(),
+    }
+    return Response(response,status=status.HTTP_200_OK)
+

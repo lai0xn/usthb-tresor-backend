@@ -1,15 +1,17 @@
 from django.urls import path
-from .views import get_faculty,get_faculties,get_module_byID, get_faculty_byID, get_file_byID,module,search_files,upload_file,download_file,get_modules_by_group
-
+from . import views
 urlpatterns = [
-            path("fac/<int:id>",get_faculty_byID,name="single faculty"),
-            path("fac/all",get_faculties,name="all faculties"),
-            path("module/<int:id>",get_module_byID,name='mod-id'),
-            path("file/<int:id>",get_file_byID,name='fac-id'), 
-            path("search/fac/",get_faculty,name='fac-search'), 
-            path("search/module/",module,name="get module"),
-            path("search/file/",search_files,name="search-file"),
-            path("upload/",upload_file,name="upload-file"),
-            path("download/<int:id>",download_file,name="download-file"),
-            path("search/bygroup/",get_modules_by_group,name="get_modules_by_group")
+            path("fac/<int:id>",views.get_faculty_byID,name="single faculty"),
+            path("fac/all",views.get_faculties,name="all faculties"),
+            path("module/<int:id>",views.get_module_byID,name='mod-id'),
+            path("file/<int:id>",views.get_file_byID,name='fac-id'), 
+            path("search/fac/",views.get_faculty,name='fac-search'), 
+            path("search/module/",views.module,name="get module"),
+            path("search/file/",views.search_files,name="search-file"),
+            path("upload/",views.upload_file,name="upload-file"),
+            path("download/<int:id>",views.download_file,name="download-file"),
+            path("search/bygroup/",views.get_modules_by_group,name="get_modules_by_group"),
+            path("fac/<int:id>/getcount/",views.get_file_count,name="get-fac-file-count"),
+            path("module/<int:id>/getcount/",views.get_module_count,name="get-module-file-count")
+
         ]
