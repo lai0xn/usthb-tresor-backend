@@ -19,7 +19,7 @@ class FacultySerializer(serializers.ModelSerializer):
     modules = serializers.SerializerMethodField()
     class Meta:
         model = Faculty
-        fields = ('id','name','short','modules','file_count')
+        fields = ('id','name','short','modules')
         depth=1
     def get_modules(self,obj):
         serializer = ModuleSerializer(obj.modules,many=True)
