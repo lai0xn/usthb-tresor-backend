@@ -140,6 +140,7 @@ def get_file_count(request,id):
         "td_count":fac.td_file_count(),
         "cour_count":fac.cour_file_count(),
         "other_count":fac.other_file_count(),
+        "exam_count":fac.exam_file_count(),
     }
     return Response(response,status=status.HTTP_200_OK)
 
@@ -153,6 +154,7 @@ def get_module_count(request,id):
         "td_count":fac.td_file_count(),
         "cour_count":fac.cour_file_count(),
         "other_count":fac.other_file_count(),
+        "exam_count":fac.exam_file_count(),
     }
     return Response(response,status=status.HTTP_200_OK)
 
