@@ -9,7 +9,7 @@ class ModuleSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Module
-        fields=('id','name','short','file_set','cour_file_count','group','drive_id','file_count','tp_file_count','td_file_count','exam_file_count','other_file_count','cour_drive_id','tp_drive_id','td_drive_id','other_drive_id',"exam_drive_id")
+        fields=('id','name','short','file_set','group','drive_id','file_count','cour_drive_id','tp_drive_id','td_drive_id','other_drive_id',"exam_drive_id")
         depth=1
 
    
@@ -19,7 +19,7 @@ class FacultySerializer(serializers.ModelSerializer):
     modules = serializers.SerializerMethodField()
     class Meta:
         model = Faculty
-        fields = ('id','name','short','modules','file_count','cour_file_count','tp_file_count','td_file_count','exam_file_count','other_file_count')
+        fields = ('id','name','short','modules','file_count')
         depth=2
     def get_modules(self,obj):
         serializer = ModuleSerializer(obj.modules,many=True)

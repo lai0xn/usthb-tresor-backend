@@ -70,7 +70,7 @@ class Faculty(models.Model):
     
     def __str__(self):
         return self.name
-    
+    ##
     @property
     def file_count(self):
         count = 0
@@ -107,7 +107,7 @@ class Faculty(models.Model):
         count = 0
         for module in self.modules.all():
             count += module.file_set.all().filter(file_type="other").count()
-        return count
+        return count 
 
 
 
