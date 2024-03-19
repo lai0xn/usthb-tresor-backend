@@ -15,6 +15,7 @@ class ModuleGroup(models.Model):
     @property
     def file_count(self):
         return self.module_set.count()
+
     def __str__(self) -> str:
         return self.name
 
@@ -33,6 +34,30 @@ class Module(models.Model):
     @property
     def file_count(self):
        return self.file_set.count()
+
+   
+    @property
+    def tp_file_count(self):
+        return self.file_set.all().filter(file_type="tp").count()
+
+    
+    @property
+    def td_file_count(self):
+        return self.file_set.all().filter(file_type="td").count()
+
+    @property
+    def other_file_count(self):
+        return self.file_set.all().filter(file_type="other").count()
+
+    @property
+    def cour_file_count(self):
+        return self.file_set.all().filter(file_type="cour").count()
+
+    
+    @property
+    def exam_file_count(self):
+        return self.file_set.all().filter(file_type="exam").count()
+
     def __str__(self):
         return self.name
 
@@ -45,9 +70,48 @@ class Faculty(models.Model):
     
     def __str__(self):
         return self.name
+    
     @property
     def file_count(self):
-        return self.modules.count()
+        count = 0
+        for module in self.modules.all():
+            count += module.file_set.count()
+        return count
+
+    @property
+    def cour_file_count(self):
+        count = 0
+        for module in self.modules.all():
+            count += module.file_set.all().filter(file_type="cour").count()
+
+    @property
+    def tp_file_count(self):
+        count = 0
+        for module in self.modules.all():
+            count += module.file_set.all().filter(file_type="tp").count()
+        return count
+    @property
+    def td_file_count(self):
+        count = 0
+        for module in self.modules.all():
+            count += module.file_set.all().filter(file_type="td").count()
+        return count
+    @property
+    def exam_file_count(self):
+        count = 0
+        for module in self.modules.all():
+            count += module.file_set.all().filter(file_type="exam").count()
+        return count
+    @property
+    def other_file_count(self):
+        count = 0
+        for module in self.modules.all():
+            count += module.file_set.all().filter(file_type="other").count()
+        return count
+
+
+
+        
 
     def group_modules(self):
        pass 

@@ -30,6 +30,10 @@ def handle_file_accepting(sender,instance,created,**kwargs):
         if instance.file_type == "other":
             parent = instance.module.other_drive_id
 
+        if instance.file_type == "exam":
+            parent = instance.module.exam_drive_id
+
+
         file_metadata = {
             'name': instance.title,
 
@@ -82,16 +86,25 @@ def hanle_Module_Creation(sender,instance,created,**kwargs):
         'parents':[id]
 
         }
+        exam_body = {
+        'name': "Exams",
+        'mimeType': 'application/vnd.google-apps.folder',
+        'parents':[id]
+
+        }
         courses_folder = drive_service.files().create(body=cour_body,fields='id').execute()
         td_folder = drive_service.files().create(body=td_body,fields='id').execute()
         tp_folder = drive_service.files().create(body=tp_body,fields='id').execute()
         other_folder= drive_service.files().create(body=other_body,fields='id').execute()
+        exams_folder = drive_service.files().create(body=exam_body,fields='id').execute()
 
         instance.cour_drive_id = courses_folder.get("id")
 
         instance.tp_drive_id = tp_folder.get("id")
         instance.td_drive_id = td_folder.get("id")
         instance.other_drive_id = other_folder.get("id")
+        instance.exam_drive_id = exams_folder.get("id")
+
         instance.save()
   
 
