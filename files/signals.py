@@ -12,7 +12,7 @@ credentials = Credentials.from_authorized_user_file("./config.json")
 # Create the Google Drive service
 drive_service = build('drive', 'v3', credentials=credentials)
 
-MASTER_FOLDER_ID = "1-CzywdQK6AmdF5F84NPAzCLQXnJq4IC5?usp"
+MASTER_FOLDER_ID = "1-CzywdQK6AmdF5F84NPAzCLQXnJq4IC5"
 
 
 @receiver(post_save,sender=File)
