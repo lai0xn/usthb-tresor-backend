@@ -12,15 +12,13 @@ credentials = Credentials.from_authorized_user_file("./config.json")
 # Create the Google Drive service
 drive_service = build('drive', 'v3', credentials=credentials)
 
-MASTER_FOLDER_ID = "1-Hy1HWGoEfNpKTB-IRq4DPVCPG8O-K77"
+MASTER_FOLDER_ID = "1-CzywdQK6AmdF5F84NPAzCLQXnJq4IC5?usp"
 
 
 @receiver(post_save,sender=File)
 def handle_file_accepting(sender,instance,created,**kwargs):
     if instance.accepted:
-        print(instance.file_type)
         if instance.file_type == "cour":
-            print("pii cour" + instance.module.cour_drive_id)
             parent = instance.module.cour_drive_id
         if instance.file_type == "td":
             parent = instance.module.td_drive_id
